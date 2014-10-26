@@ -7,7 +7,21 @@ The script has three parts.
 3. Calculating the average values by subject and activity name
 
 ###Reading the training and testing data
-The first part reads all the data sets. We have three files for each of the training and the testing data set; i.e. features, the activity label and subject ID. These three files are read by read.table function, then they are merged by cbind function. The training and testing data are finally merged by rbind function to make one data set.
+The first part reads all the data sets. We have three files for each of the training and the testing data set; i.e. features, the activity label and subject ID. These three files are read by read.table function, then they are merged by cbind function. 
+```
+train_x <- read.table("./UCI HAR Dataset/train/X_train.txt")
+train_y <- read.table("./UCI HAR Dataset/train/y_train.txt")
+test_x  <- read.table("./UCI HAR Dataset/test/X_test.txt")
+test_y  <- read.table("./UCI HAR Dataset/test/y_test.txt")
+train_subject <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+test_subject  <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+train <- cbind(train_x, train_y, train_subject)
+testing <- cbind(test_x, test_y, test_subject)
+```
+The training and testing data are finally merged by rbind function to make one data set.
+```
+dat <- rbind(train, testing)
+```
 
 ### Transforming the merged data
 Both the training and testing data do not have the header names. read.table() function automatically creates column names, such as V1 and V2. feature.txt file includes the feature name, and we merge this file with the data set we created in the first step. 
