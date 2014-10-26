@@ -78,4 +78,5 @@ length(colnames(dat2)[2:80]) # 79 features
 # so we should have 30 x 6 x 79 rows, which is 14220 as below.
 30*6*79 # 14220
 
+# output the final tiny data set
 write.table(dat.final, file="./assignment_tiny_dataset.txt", row.name=FALSE)
