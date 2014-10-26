@@ -61,7 +61,7 @@ dim(dat2)
 head(dat2[,1:10])
 
 
-## 5. From the data set in step 4, creates a second, independent tidy data set with 
+## 4. From the data set in step 3, creates a second, independent tidy data set with 
 # the average of each variable for each activity and each subject.
 library(plyr)
 library(reshape2)
